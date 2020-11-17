@@ -38,7 +38,7 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 img {
-  max-width: 100%;
+  width: 100%;
   display: block;
 }
 article > * + * {
@@ -65,53 +65,51 @@ body {
     background-color: rgba(225, 239, 236, 1);
     border: 15px solid white;
     font-family: 'Roboto', sans-serif;
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 400;
 }
 h1 {
-    font-size: 2.4rem;
+    width: 150px;
+    font-size: 2.2rem;
     font-weight: 400;
 }
 h2 {
-    font-size: 4.8rem;
+    width: 235px;
+    font-size: 4.4rem;
     font-weight: 900;
 }
 h3 {
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 500;
-    margin: 2.8rem 0rem;
+    padding: 2rem 0rem;
 }
 img {
     border-radius: 50%;
-    margin-bottom: 3rem;
+    width: 100%;
 }
-.container {
-    display: flex;
-    padding: 5rem;
+.columns {
+    max-width: 290px;
+    margin: 2rem;
 }
-
 /* ------------------------COL LEFT------------------------ */
 
-.col-left {
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 45%;
-    padding: 0rem 8rem;
-}
-.head {
-    padding: 4rem 0rem;
-}
-.profilepic{
-    display: flex;
-}
-.profilepic-child {
+.profile {
     text-align: center;
 }
-.icon-map-chile {
-    display: flex;
-    justify-content: center;
+.profile-img {
+    margin: auto;
+    width: 60%;
+}
+.profile-info {
+    position: relative;
+}
+.icon-map::before {
+    position: absolute;
+    content: url(assets/icon-map.svg);
+    left: 100px;
 }
 .quote {
+    font-size: 2.2rem;
     font-style: italic;
     font-weight: 500;
     padding-top: 3rem;
@@ -119,30 +117,19 @@ img {
 
 /* ------------------------------COL RIGHT ---------------------- */
 
-.col-right {
-    flex-direction: row;
-    flex-wrap: wrap;
-    max-width: 55%;
-    padding: 0rem 8rem;
-}
 .img-studies-parent {
     display: flex;
 }
-.img-studies-child {
-    display: flex;
+.img-child {
+    width: 50%;
     text-align: center;
 }
-.img-col-left {
-    max-width: 50%;
-    padding: 0rem 6rem;
-}
-.img-col-right {
-    max-width: 50%;
-    margin: 0rem 3rem;
+.img-child p {
+    font-size: 1.6rem;
+    padding-top: 1rem;
 }
 .hobbies-parent {
     display: flex;
-    justify-content: space-between;
 }
 
 /* --------------------------CLOUD ANIMATION ------------------------- */
@@ -203,4 +190,67 @@ img {
 @keyframes animate {
     from {bottom: 0px;}
     to {bottom: 100%;}
+}
+
+/* -------------------------------RESPONSIVE---------------------------- */
+
+@media (min-width: 720px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        height: 900px;
+    }
+    .columns {
+        margin: 5rem 10rem 10rem 10rem;
+    }
+    .left {
+        max-width: 400px;
+    }
+    .right {
+        max-width: 600px;
+        margin-left: 12rem;
+        margin-top: 1rem;
+    }
+    h2 {
+        font-size: 4.8rem;
+        width: inherit;
+    }
+    h3 {
+        font-size: 2.4rem;
+        padding: 4rem 0rem;
+    }
+    .head {
+        padding: 0 0 2rem 0;
+    }
+    .profile-img {
+        width: 80%;
+    }
+    .profile-img img {
+        margin-bottom: 2.5rem;
+    }
+    .icon-map::before {
+        position: absolute;
+        content: url(assets/icon-map.svg);
+        left: 157px;
+    }
+    .quote {
+        padding-top: 6rem;
+    }
+    .img-studies-parent {
+        width: 720px;
+    }
+    .img-studies-parent p {
+        font-size: 2.4rem;
+    }
+    .img-child {
+        width: 35%;
+        margin: auto;
+    }
+    .hobbies-parent {
+        width: 720px;
+        height: 270px;
+    }
+    .hobbies {
+        width: 33%;
+    }
 }
